@@ -39,5 +39,7 @@ let mainQuest = () => {
     // display a quest to the dom
     console.log('do you accept');
     // here is where the play would accept or decline
-}
+};
 
+let myLet = 5;
+console.log(myLet);
