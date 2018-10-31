@@ -2,3 +2,33 @@ a{
     text-decoration: none;
     color: inherit;
 }
+a:visited{
+    color: inherit;
+}
+main{
+    height: 100%;
+    width: 100%;
+}
+.containsAll{
+    width: 100%;
+    height: 100%;
+}
+.playerInfo{
+    height: 100%;
+    width: 40%;
+}
+.gameSpace{
+    height: 60%;
+    width: 100%;
+    display: flex;
+}
+.displaySpace{
+    margin: auto;
+    height: 40%;
+    width: 100%;
+}
+.textBox{
+    border: solid black 3px;
+    height: 70%;
+    width: 100%;
+}
