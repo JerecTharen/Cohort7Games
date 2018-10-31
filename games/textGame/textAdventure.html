@@ -76,12 +76,21 @@
         <main class="mdl-layout__content mdl-grid mdl-grid--no-spacing">
             <div class="page-content mdl-grid mdl-cell mdl-cell--12-col mdl-cell--stretch">
                 <div class="playerInfo mdl-cell mdl-cell--4-col mdl-cell--stretch">
-
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        CHARACTER INFO
+                    </button>
+                    <div id="showPI">
+                        <h3 id="health">Health: </h3>
+                        <h3 id="gold">Gold: </h3>
+                        <div id="inventory">
+                            <p>Inventory Empty</p>
+                        </div>
+                    </div><!-- end of showPI -->
                 </div><!-- end of playerInfo -->
 
                 <div class="gameSpace mdl-cell--8-col mdl-cell--middle">
                     <div class="textBox">
-                        <p>Welcome to Text Adventure!</p>
+                        <p id="gameText">Welcome to Text Adventure!</p>
                     </div><!--end of textSpace -->
                     <div class="playerControls">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">

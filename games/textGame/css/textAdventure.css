@@ -14,8 +14,12 @@ main{
     height: 100%;
 }
 .playerInfo{
-    height: 100%;
+    height: 80%;
     width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .gameSpace{
     height: 60%;
@@ -40,4 +44,7 @@ main{
     display: flex;
     justify-content: space-around;
     width: 50%;
+}
+#showPI{
+    display: none;
 }
