@@ -31,11 +31,11 @@
         const up = 38;
         const down = 40;
 
-        const level  =   {x: 0 ,y: 15, length: 30, height: 5, area: 30 * 20}
+        const level  =   {x: 0 ,y: 15, length: 40, height: 5, area: 30 * 20}
         const scaledlevel  =   {x: level.x * scale ,y: level.y * scale , length: level.length * scale, height: level.height * scale, area: level.length * level.height * scale}
         const level2 =   {x: 30, y: 0, length: 20, height: 30}
         const scaledlevel2 =   {x: level2.x * scale, y: level2.y * scale, length: level2.length * scale, height: level2.height * scale}
-        var player   =   {x: 0, y: 0, length: 1, height: 1}
+        var player   =   {x: 500, y: 0, length: 1, height: 1}
         var scaledplayer   =   {x: player.x * scale, y: player.y * scale, length: player.length * scale, height: player.height * scale}
         var acceleration = 1;
         var gravity = .5;
@@ -43,7 +43,7 @@
         var vely = 0;
         var maxspeed = 10;
         var friction = 2;
-        var jumpheight = 5;
+        var jumpheight = 15;
         var jumpcounter = 0;
         var xcollide = 0;
 
@@ -97,8 +97,8 @@
             
         function drawBG(){
 
-            ctx.fillRect(level.x * scale, level.y * scale, scale * level.length, scale * level.height);
-            ctx.fillRect(level2.x * scale, level2.y * scale, scale * level2.length, scale * level2.height);
+            ctx.fillRect(scaledlevel.x, scaledlevel.y ,scaledlevel.length, scaledlevel.height);
+            /*ctx.fillRect(scaledlevel2.x, scaledlevel2.y ,scaledlevel2.length, scaledlevel2.height);*/
             ctx.fillStyle="white";
             ctx.fillText("X : " + velx ,10 * scale ,20 *scale);
 
@@ -131,6 +131,9 @@
 
             Math.round(velx);
 
+            if(rightPressed && leftPressed){
+                velx = 0;
+            }
             if(vely > 10 * scale){
                 vely = 10 * scale;
             }
@@ -157,13 +160,24 @@
                     player.y += vely;
                 }  
 
-                if(player.x + scaledplayer.length  > scaledlevel2.x){
+                if(player.x + scaledplayer.length > canvas.width){
                     xcollide = 1;
-                    player.x -= velx;
+                    player.x = 0;
                     
-                }else{
+                }
+                else{
                     xcollide = 0;
                 } 
+                if(player.x< 0){
+                    xcollide = 1;
+                    player.x = canvas.width - scaledplayer.length - 10
+                    ;
+                    
+                }
+                else{
+                    xcollide = 0;
+                } 
+
             
              ctx.fillStyle="black";
 
@@ -201,7 +215,7 @@
                             jumpcounter = 25;
                             console.log(vely);
                             player.y -= vely;
-                            vely = -25;
+                            vely = -jumpheight;
                             
                         }
                     }
