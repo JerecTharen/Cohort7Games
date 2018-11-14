@@ -38,7 +38,7 @@ let mainQuest = () => {
     console.log('a gang of bandits has taken over the kings road I theres gold to be had if you can do that ');
     // display a quest to the dom
     console.log('do you accept');
-    // here is where the play would accept or decline
+    // here is where the player would accept or decline
 };
 
 let myLet = 5;

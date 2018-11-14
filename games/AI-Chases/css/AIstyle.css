@@ -1,0 +1,25 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+#gameGrid{
+    margin: auto;
+}
+.row {
+    background-color: green;
+    display: flex;
+    width: 60em;
+}
+.col{
+    height: 2em;
+    width: 2em;
+    border: solid blue .25em;
+    margin: .05em;
+}
