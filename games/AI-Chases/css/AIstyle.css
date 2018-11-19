@@ -23,3 +23,10 @@ body{
     border: solid blue .25em;
     margin: .05em;
 }
+#modal{
+    display: none;
+    position: absolute;
+    margin: auto;
+    z-index: 5;
+    border: black solid 3px;
+}

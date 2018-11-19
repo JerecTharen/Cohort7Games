@@ -1,0 +1,13 @@
+{
+  "level":[
+  {
+    "enemy": 0,
+    "player": 237,
+    "coin": 421
+  },
+  {
+    "enemy": 10,
+    "player": 200,
+    "coin": 100
+  }]
+}
