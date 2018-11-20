@@ -2,6 +2,16 @@
 import {dmgCalc} from "./module2";
 import {totalDamage} from "./module1";
 
+let questText;
+
+$.ajax({
+    url: "./questText/questText.JSON",
+    type: "GET",
+    success: (response,err)=>{
+        questText = JSON.parse(response);
+    }
+});
+
 
 
 class Player {
@@ -49,7 +59,7 @@ let mainQuest = () => {
 (function(){
     document.getElementById('firstBTN').setAttribute('onclick', 'practiceModule2()');
     document.getElementById('firstBTN').innerHTML = 'CALC DAMAGE';
-    document.getElementById('gameText').innerHTML = 'A monster swings his mace at you.';
+    document.getElementById('gameText').innerHTML = questText.characterCreation[0];
 })();
 
 window.practiceModule2 = ()=>{
