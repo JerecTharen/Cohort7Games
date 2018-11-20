@@ -1,5 +1,5 @@
 
-import dmgCalc from "./module2";
+import {dmgCalc} from "./module2.js";
 
 
 class Player {
@@ -45,14 +45,16 @@ let mainQuest = () => {
 };
 
 (function(){
-    document.getElementById('firstBTN').setAttribute('onclick', 'practiceModule2');
+    document.getElementById('firstBTN').setAttribute('onclick', 'practiceModule2()');
+    document.getElementById('firstBTN').innerHTML = 'CALC DAMAGE';
+    document.getElementById('gameText').innerHTML = 'A monster swings his mace at you.';
 })();
 
-function practiceModule2(){
+window.practiceModule2 = ()=>{
     let attack = dmgCalc(5,6);
     let text = `The monster does ${attack} damage with his mace.`;
-    document.getElementById('gameText').innerHTMl = text;
-}
+    document.getElementById('gameText').innerHTML = text;
+};
 
 let myLet = 5;
 console.log(myLet);
