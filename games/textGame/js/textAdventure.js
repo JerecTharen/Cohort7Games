@@ -1,5 +1,6 @@
 
 import dmgCalc from "./module2";
+import totalDamage from "./module1";
 
 
 class Player {
@@ -56,3 +57,4 @@ function practiceModule2(){
 
 let myLet = 5;
 console.log(myLet);
+
