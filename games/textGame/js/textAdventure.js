@@ -1,4 +1,7 @@
 
+import dmgCalc from "./module2";
+
+
 class Player {
     constructor(health, gold, inventory) {
         this.health = health;
@@ -40,6 +43,16 @@ let mainQuest = () => {
     console.log('do you accept');
     // here is where the player would accept or decline
 };
+
+(function(){
+    document.getElementById('firstBTN').setAttribute('onclick', 'practiceModule2');
+})();
+
+function practiceModule2(){
+    let attack = dmgCalc(5,6);
+    let text = `The monster does ${attack} damage with his mace.`;
+    document.getElementById('gameText').innerHTMl = text;
+}
 
 let myLet = 5;
 console.log(myLet);
