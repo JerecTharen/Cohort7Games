@@ -1,0 +1,36 @@
+{
+  "characterCreation": [
+    "Welcome To Our Text Adventure",
+    "What Gender Will Your Character Be?",
+    {
+      "male": "You Chose Male",
+      "female": "You Chose Female"
+    },
+    {
+      "initial": "Which Class Will You Choose?",
+      "classes": [
+        "Fighter",
+        "Ranger",
+        "Mage"
+      ],
+      "end": "You chose "
+    },
+    "Your stats are now: ",
+    "You have these skills: ",
+    "You have this equipment: "
+  ],
+  "firstEncounter": [
+    "You Wake Up to the Growl of A Minotaur Attacking You",
+    {
+      "fighter": "You Swing Your Sword",
+      "ranger": "You Shoot An Arrow",
+      "mage": "You Release a Magic Missile"
+    },
+    {
+      "lowDmg": "The Monster is Enraged By Your Pitiful Attack!",
+      "medDmg": "The Monster Stumbles Briefly From Your Attack!",
+      "highDmg": "The Monster is Knocked Over to the Ground From the Force of Your Attack, it Looks Really Hurt!"
+    }
+  ],
+  "characterDeath": "You Died"
+}

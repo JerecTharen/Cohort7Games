@@ -60,4 +60,3 @@ window.practiceModule2 = ()=>{
 
 let myLet = 5;
 console.log(myLet);
-
