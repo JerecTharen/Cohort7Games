@@ -1,14 +1,16 @@
 
-import {dmgCalc} from "./module2";
-import {totalDamage} from "./module1";
+import {dmgCalc} from "./module2.js";
+import {totalDamage} from "./module1.js";
 
 let questText;
 
 $.ajax({
-    url: "./questText/questText.JSON",
+    url: "./js/questText/questText.JSON",
     type: "GET",
     success: (response,err)=>{
-        questText = JSON.parse(response);
+        console.log(response);
+        questText = response;
+        document.getElementById('gameText').innerHTML = questText.characterCreation[0];
     }
 });
 
@@ -59,7 +61,7 @@ let mainQuest = () => {
 (function(){
     document.getElementById('firstBTN').setAttribute('onclick', 'practiceModule2()');
     document.getElementById('firstBTN').innerHTML = 'CALC DAMAGE';
-    document.getElementById('gameText').innerHTML = questText.characterCreation[0];
+    // document.getElementById('gameText').innerHTML = questText.characterCreation[0];
 })();
 
 window.practiceModule2 = ()=>{
