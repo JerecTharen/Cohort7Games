@@ -3,6 +3,7 @@ import {dmgCalc} from "./module2.js";
 import {totalDamage} from "./module1.js";
 
 let questText;
+let currentText;
 
 $.ajax({
     url: "./js/questText/questText.JSON",
@@ -10,6 +11,7 @@ $.ajax({
     success: (response,err)=>{
         console.log(response);
         questText = response;
+        currentText = 0;
         document.getElementById('gameText').innerHTML = questText.characterCreation[0];
     }
 });
@@ -72,3 +74,14 @@ window.practiceModule2 = ()=>{
 
 let myLet = 5;
 console.log(myLet);
+
+window.changeText = function (){
+    console.log('in function');
+    // document.getElementById('secondBTN').setAttribute('onclick','changeText()');
+    if (currentText !== questText.characterCreation.length - 1){
+        currentText++;
+    }
+    console.log(currentText);
+    document.getElementById('gameText').innerHTML = questText.characterCreation[currentText];
+};
+
