@@ -28,16 +28,18 @@ function loadText(){
 }
 
 questLoad = loadText();
-(function(){
+(async function(){
     questLoad.then(data =>{
         console.log(data);
-        questText = data;
-        gameText.innerHTML = data.characterCreation[currentText];
+        questText = JSON.parse(data);
+        gameText.innerHTML = questText.characterCreation[currentText];
     });
+    btnOne.innerHTML = 'CONTINUE';
+    btnOne.setAttribute('onclick','continueText()');
 })();
 
 function continueText(){
-    console.log('in function');
+    // console.log('in function');
     if(currentText !== questText.characterCreation.length - 1){
         currentText++;
     }
