@@ -19,7 +19,7 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
     <!-- our module JS -->
-    <script src="./js/textAdventure.js" type="module" defer>
+    <script src="./js/textAdventure.js" type="text/javascript" defer>
 
     </script>
     <!-- The player info button JS, for now, add more later! -->
@@ -105,16 +105,16 @@
                         <p id="gameText">Welcome to Text Adventure!</p>
                     </div><!--end of textSpace -->
                     <div class="playerControls">
-                        <button id="firstBTN" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        <button id="firstBTN" onclick="continueText()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                            CONTINUE
+                        </button>
+                        <button id="secondBTN" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                            BACK
+                        </button>
+                        <button id="thirdBTN" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                             Button
                         </button>
-                        <button onclick="changeText()" id="secondBTN" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                            Continue
-                        </button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-                            Button
-                        </button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                        <button id="fourthBTN" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                             Button
                         </button>
                     </div><!--end of playerControls -->

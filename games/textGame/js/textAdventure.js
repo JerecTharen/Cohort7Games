@@ -1,87 +1,45 @@
 
-import {totalDamage} from 'module1'
-import {dmgCalc} from 'module2';
-
-let currentText;
+//document element references
+let gameText = document.getElementById('gameText');
+let btnOne = document.getElementById('firstBTN');
+let btnTwo = document.getElementById('secondBTN');
+let btnThree = document.getElementById('thirdBTN');
+let btnFour = document.getElementById('fourthBTN');
+//variable initialization
+let currentText = 0;
+let questLoad;
 let questText;
 
-let playerDeath = false;
-$.ajax({
-    url: "./js/questText/questText.JSON",
-    type: "GET",
-    success: (response,err)=>{
-        console.log(response);
-        questText = response;
-        currentText = 0;
-        document.getElementById('gameText').innerHTML = questText.characterCreation[0];
-    }
-});
 
+function loadText(){
+    return new Promise((resolve,reject)=>{
+        $.ajax({
+            url: "./js/questText/questText.JSON",
+            type: "GET",
+            success: (response,status)=>{
+                resolve(response);
+            },
+            error: (error)=>{
+                reject(error);
+            }
+        });
 
-
-class Player {
-    constructor(health, gold, inventory, armor) {
-        this.health = health;
-        this.gold = gold;
-        this.inventory = inventory;
-        this.armor = armor;
-    }
-
-    tookDamage(health) {
-        if (this.health < 0) {
-            playerDeath = true;
-        } else {
-            this.health -= totalDamage(this.health, this.armor, dmgCalc());
-        }
-    }
-
-    sleep(health, gold) {
-        if (this.gold >= 20) {
-            this.health += 20;
-            this.gold -= 20;
-            // display something that says that the player is now well rested
-        }
-    }
-
-    boughtFood(health, gold) {
-        if (this.gold >= 10) {
-            this.gold -= 10;
-            this.inventory.food.push('slice of ham');
-        }
-    }
+    });
 }
 
-
-
-let mainQuest = () => {
-    console.log('a gang of bandits has taken over the kings road I theres gold to be had if you can do that ');
-    // display a quest to the dom
-    console.log('do you accept');
-    // here is where the player would accept or decline
-};
-
+questLoad = loadText();
 (function(){
-    document.getElementById('firstBTN').setAttribute('onclick', 'practiceModule2()');
-    document.getElementById('firstBTN').innerHTML = 'CALC DAMAGE';
-    // document.getElementById('gameText').innerHTML = questText.characterCreation[0];
+    questLoad.then(data =>{
+        console.log(data);
+        questText = data;
+        gameText.innerHTML = data.characterCreation[currentText];
+    });
 })();
 
-window.practiceModule2 = ()=>{
-    let attack = dmgCalc(5,6);
-    let text = `The monster does ${attack} damage with his mace.`;
-    document.getElementById('gameText').innerHTML = text;
-};
-
-let myLet = 5;
-console.log(myLet);
-
-window.changeText = function (){
+function continueText(){
     console.log('in function');
-    // document.getElementById('secondBTN').setAttribute('onclick','changeText()');
-    if (currentText !== questText.characterCreation.length - 1){
+    if(currentText !== questText.characterCreation.length - 1){
         currentText++;
     }
-    console.log(currentText);
-    document.getElementById('gameText').innerHTML = questText.characterCreation[currentText];
-};
-
+    gameText = questText.characterCreation[currentText];
+}
