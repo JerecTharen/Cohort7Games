@@ -1,10 +1,12 @@
 
-import {dmgCalc} from "./module2.js";
-import {totalDamage} from "./module1.js";
+import {totalDamage} from 'module1'
+import {dmgCalc} from 'module2';
 
 let questText;
 let currentText;
 
+let questText;
+let playerDeath = false;
 $.ajax({
     url: "./js/questText/questText.JSON",
     type: "GET",
@@ -19,19 +21,18 @@ $.ajax({
 
 
 class Player {
-    constructor(health, gold, inventory) {
+    constructor(health, gold, inventory, armor) {
         this.health = health;
         this.gold = gold;
-        this.inventory = inventory
+        this.inventory = inventory;
+        this.armor = armor;
     }
 
-    boughtDrink(gold) {
-        if (this.gold >= 10) {
-            this.gold -= 10;
-            this.inventory.food.push('lager');
+    tookDamage(health) {
+        if (this.health < 0) {
+            playerDeath = true;
         } else {
-            // display 'looks like you're short on funds' to the dom
-            console.log('you are broke');
+            this.health -= totalDamage(this.health, this.armor, dmgCalc());
         }
     }
 
