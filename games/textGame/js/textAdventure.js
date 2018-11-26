@@ -2,10 +2,9 @@
 import {totalDamage} from 'module1'
 import {dmgCalc} from 'module2';
 
-let questText;
 let currentText;
-
 let questText;
+
 let playerDeath = false;
 $.ajax({
     url: "./js/questText/questText.JSON",
