@@ -41,5 +41,5 @@ function continueText(){
     if(currentText !== questText.characterCreation.length - 1){
         currentText++;
     }
-    gameText = questText.characterCreation[currentText];
+    gameText.innerHTML = questText.characterCreation[currentText];
 }
